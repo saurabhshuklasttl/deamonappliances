@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deamon – Launching Soon</title>
+    <style>
+        * {margin:0; padding:0; box-sizing:border-box;}
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: linear-gradient(135deg, #0d1117, #1a1f27);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            padding: 40px 25px;
+            border-radius: 16px;
+            max-width: 650px;
+            width: 100%;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+        h1 {
+            font-size: 3rem;
+            color: #ffcc00;
+            margin-bottom: 10px;
+        }
+        .tagline {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+        .countdown {
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            margin: 20px 0 30px;
+            flex-wrap: wrap;
+        }
+        .time-box {
+            background: rgba(255,255,255,0.1);
+            padding: 15px 20px;
+            border-radius: 12px;
+            min-width: 80px;
+        }
+        .time-box h3 {
+            margin: 0;
+            font-size: 2rem;
+            color: #ffcc00;
+        }
+        .time-box span {
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+        .launch-date {
+            margin-bottom: 25px;
+            font-size: 1rem;
+            color: #bbb;
+        }
+        .team {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        .team p {margin: 5px 0;}
+        footer {
+            margin-top: 25px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        @media(max-width: 500px){
+            h1 {font-size: 2rem;}
+            .tagline {font-size: 1rem;}
+            .time-box h3 {font-size: 1.5rem;}
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Deamon</h1>
+        <p class="tagline">Powering Your Comfort, Redefining Cooling.</p>
+
+        <div class="countdown">
+            <div class="time-box">
+                <h3 id="days">00</h3>
+                <span>Days</span>
+            </div>
+            <div class="time-box">
+                <h3 id="hours">00</h3>
+                <span>Hours</span>
+            </div>
+            <div class="time-box">
+                <h3 id="minutes">00</h3>
+                <span>Minutes</span>
+            </div>
+            <div class="time-box">
+                <h3 id="seconds">00</h3>
+                <span>Seconds</span>
+            </div>
+        </div>
+
+        <p class="launch-date">Launching on <strong>31st August 2025</strong></p>
+
+        <div class="team">
+            <p><strong>MD:</strong> Anand Shukla</p>
+            <p><strong>Co-Founder:</strong> Govind Mishra</p>
+            <p><strong>General Manager:</strong> Gaurav Shukla</p>
+        </div>
+
+        <footer>© 2025 Deamon™. All Rights Reserved.</footer>
+    </div>
+
+    <script>
+        const launchDate = new Date("Aug 31, 2025 00:00:00").getTime();
+        const timer = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+
+            if (distance <= 0) {
+                clearInterval(timer);
+                document.querySelector(".countdown").innerHTML = "<h2>We are Live!</h2>";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").textContent = days;
+            document.getElementById("hours").textContent = hours;
+            document.getElementById("minutes").textContent = minutes;
+            document.getElementById("seconds").textContent = seconds;
+        }, 1000);
+    </script>
+</body>
+</html>
