@@ -448,7 +448,7 @@
                 </div>
             </div>
 
-            <p class="launch-date">Official Launch: <strong>31st August 2025</strong></p>
+            <p class="launch-date">Official Launch: <strong>8:00 PM, 31st August 2025</strong></p>
         </div>
         
         <div class="scroll-indicator">
@@ -565,28 +565,28 @@
     </footer>
 
     <script>
-        // Countdown Timer
-        const launchDate = new Date("Aug 31, 2025 00:00:00").getTime();
-        const timer = setInterval(() => {
-            const now = new Date().getTime();
-            const distance = launchDate - now;
+    // Countdown Timer
+    const launchDate = new Date("Aug 31, 2025 20:00:00").getTime(); // Changed to 8PM
+    const timer = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = launchDate - now;
 
-            if (distance <= 0) {
-                clearInterval(timer);
-                document.querySelector(".countdown").innerHTML = "<h2 style='color: #ffcc00; font-size: 2rem;'>🎉 We are Live! 🎉</h2>";
-                return;
-            }
+        if (distance <= 0) {
+            clearInterval(timer);
+            document.querySelector(".countdown").innerHTML = "<h2 style='color: #ffcc00; font-size: 2rem;'>🎉 We are Live! 🎉</h2>";
+            return;
+        }
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById("days").textContent = String(days).padStart(2, '0');
-            document.getElementById("hours").textContent = String(hours).padStart(2, '0');
-            document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
-            document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
-        }, 1000);
+        document.getElementById("days").textContent = String(days).padStart(2, '0');
+        document.getElementById("hours").textContent = String(hours).padStart(2, '0');
+        document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
+        document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+    }, 1000);
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
